@@ -5,15 +5,6 @@ const createCustomer = async (req,res)=>{
     try {
         const customerData = req.body
         console.log(customerData)
-        let status = true
-        Object.keys(customerData).forEach(ele=>{
-            if(["fName","lName","email","phone","password"].indexOf(ele)===-1){
-                status = false
-            }
-        })
-
-        if(!status) return res.status(400).send({status:false, message: `You can't add other properties than specified.`})
-
         const {
             fName,
             lName,
